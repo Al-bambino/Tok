@@ -1,0 +1,12 @@
+{int, #broj}
+$input('Unesite broj', 'int') -> #broj
+{int, #suma}
+dont_f_stop_until #broj <= 0 do
+	#suma + #broj % 10 -> #suma
+	#broj / 10  ->  #broj
+end
+if #suma >= 10 do
+	$spit('Veci je')
+	return 1
+end
+$spit('Nije')

@@ -1,0 +1,9 @@
+{int, #n}
+$inpt('Koliko brojeva hocete', 'int') -> #n
+{int, #i}
+{int, #broj}
+dont_f_stop_until #i < #n do
+	$randm(1, 100) -> #broj
+	$spit(#i)
+	#i++
+end

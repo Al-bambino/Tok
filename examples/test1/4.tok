@@ -1,0 +1,13 @@
+{int, #n}
+$inpt('Koliko brojeva hocete', 'int') -> #n
+{int, #i}
+{double, #sum}
+{int, #broj}
+dont_f_stop_until #i < #n do
+	$inpt('Unesite broj', 'int') -> #broj
+	#sum + #broj -> #sum 
+	#i++
+end
+{double, #t}
+#sum / #n -> #t
+$spit('Artimetcika sredina je ' ~ $castStr(#t))

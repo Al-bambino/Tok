@@ -1,0 +1,15 @@
+function int idealnaTezina(int: #visina, string: #pol) do
+	{string, #s}
+	'm' -> #s
+	if #pol ==  #s do
+		return #visina - 120
+	end
+	return #visina - 100
+end
+{int, #visina}
+$inpt('Unesite visinu', 'int') -> #visina
+{string, #pol}
+$inpt('Unesite pol [m, z]', 'string') -> #pol
+{int, #idealnaT}
+idealnaTezina(#visina, #pol) -> #idealnaT
+$spit(#idealnaT)

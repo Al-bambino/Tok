@@ -1,0 +1,20 @@
+{int, #broj1}
+$inpt('Unesite broj 1', 'int') -> #broj1
+{int, #broj2}
+$inpt('Unesite broj 2', 'int') -> #broj2
+{int, #broj3}
+$inpt('Unesite broj 3', 'int') -> #broj3
+{int, #broj4}
+$inpt('Unesite broj 4', 'int') -> #broj4
+if #broj1 >= #broj2 and #broj1 >= #broj3 and #broj1 >= #broj4 do 
+	$spit('Najveci je ' ~ $castStr(#broj1))
+end
+if #broj2 >= #broj1 and #broj2 >= #broj3 and #broj2 >= #broj4 do
+	$spit('Najveci je ' ~ $castStr(#broj2))
+end
+if #broj3 >= #broj1 and #broj3 >= #broj2 and #broj3 >= #broj4 do
+	$spit('Najveci je ' ~ $castStr(#broj3))
+end 
+if #broj4 >= #broj2 and #broj4 >= #broj3 and #broj4 >= #broj1 do
+	$spit('Najveci je ' ~ $castStr(#broj4))
+end

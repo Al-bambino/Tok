@@ -1,0 +1,21 @@
+function string promeniTekst(string: #tekst, int: #n) do
+	{array, #reci}
+	{int, #len}
+	$strtokenize(#tekst, '[,;.!? ]\t') -> #reci
+	$count(#reci) -> #len
+	{int, #i}
+	dont_f_stop_until #i == #n-1 do
+		{string, #currRec}
+		$arr_get(#reci, #i) -> #currRec
+		{int, #currLen}
+		strLen(#currRec) -> #currLen
+		if #currLen > #n do
+			$strtupper(#currRec) -> #currRec
+		end
+		$print(#currRec)
+		#i++
+	end
+end
+{string, #tekst}
+$input('Koliko brojeva hocete') -> #tekst
+promeniTekst(#tekst, 2)

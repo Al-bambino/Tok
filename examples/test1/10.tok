@@ -1,0 +1,28 @@
+import: file
+{string, #putanja}
+{int, #brReci}
+{int, #i}
+{int, #count}
+{array, #reci}
+{string, #currRec}
+$input('Unesite putanju', 'string') -> #putanja
+$input('Unesite broj kljucnih reci', 'int') -> #brReci
+dont_f_stop_until #i == #brReci - 1 do
+	$input('Unesite rec', 'string') -> #currRec
+	$arr_push(#reci, #currRec)
+end
+{string, #file}
+$fread(#putanja) -> #file
+{array, #tekst}
+$strtokenize(#file, '[,;.!? ]\t\n') -> #tekst
+{int, #len}
+$count(#reci) -> #len
+0 -> #i
+dont_f_stop_until #i == #len - 1 do
+	$arr_get(#tekst, #i) -> #currRec
+	if $array_contains(#reci, #currRec) do
+		#count++
+	end
+	#i++
+end
+$print(#count)

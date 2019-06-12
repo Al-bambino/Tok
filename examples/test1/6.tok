@@ -1,0 +1,12 @@
+{int, #broj}
+$inpt('Koliko brojeva hocete', 'int') -> #broj
+{string, #s}
+{int, #sqr}
+dont_f_stop_until #broj > 0 do
+	$sqrt(#broj) -> #sqr
+	if $isIntg(#sqr) do
+		#s ~ $castStr(#sqr) ~ ',' -> #s
+	end
+    $inpt('Unesite broj', 'int') -> #broj
+end
+$spit(#s)

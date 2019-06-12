@@ -1,0 +1,30 @@
+{string, #text}
+{int, #n}
+{int, #i}
+{int, #j}
+{string, #novi}
+{string, #a}
+$inpt('Unesite tekst', 'string') -> #text
+$strLen(#text) -> #n
+1 -> #i
+$charAt(#text, 0) -> #novi
+dont_f_stop_until i < n do
+	{int, #isNum}
+	$isNumeric($charAt(#text, #i-1)) -> #isNum
+	{int, #isChar}
+	$isAlpha($charAt(#text, #i)) -> #isChar
+	if #isNum and #isChar do 
+		'#'-> #a
+		#novi ~ #a -> #novi
+	end
+	$isAlpha($charAt(#text, #i-1)) -> #isChar
+	$isNumeric($charAt(#text, #i)) -> #isNum
+	if #isChar and #isNum do
+		'*' -> #a
+		#novi ~ #a -> #novi
+ 	end
+ 	{string, #charAt}
+ 	$charAt(#text, #i) -> #charAt
+	#novi ~ #charAt -> #novi
+	#i++
+end

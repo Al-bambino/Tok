@@ -1,0 +1,56 @@
+{string, #rec}
+$input('Unesite rec') -> #rec
+{int, #index_1}
+{int, #index_2}
+{int, #index_space}
+{string, #row}
+{string, #s1}
+{string, #s2}
+if $strLen(#rec) % 2 == 0 do
+    ($strLen(#rec) / 2) - 1 -> #index_1
+    $castInt(#index_1) -> #index_1
+    #index_1 + 1 -> #index_2
+    dont_f_stop_until #index_1 >= 0 do
+        0 -> #index_space
+        '' -> #row
+        dont_f_stop_until #index_space < #index_1 do
+            #row ~ ' ' -> #row
+            #index_space++
+        end
+        $charAt(#rec, #index_1) -> #s1
+        $charAt(#rec, #index_2) -> #s2
+        #row ~ #s1 ~ #s2 -> #row
+        $print(#row)
+        #index_1 - 1 -> #index_1
+        #index_2 + 1 -> #index_2
+    end
+end
+if $strLen(#rec) % 2 != 0 do
+    $strLen(#rec) / 2 -> #index_1
+    $castInt(#index_1) -> #index_1
+    '' -> #row
+    0 -> #index_space
+    dont_f_stop_until #index_space < #index_1 do
+        #row ~ ' ' -> #row
+        #index_space++
+    end
+    $charAt(#rec, #index_1) -> #s1
+    #row ~ #s1 -> #row
+    $print(#row)
+    #index_1--
+    #index_2++
+    dont_f_stop_until #index_1 >= 0 do
+        '' -> #row
+        0 -> #index_space
+        dont_f_stop_until #index_space < #index_1 do
+            #row ~  ' ' -> #row
+            #index_space++
+        end
+        $charAt(#rec, #index_1) -> #s1
+        $charAt(#rec, #index_2) -> #s2
+        #row ~ #s1 ~ #s2 -> #row
+        $print(#row)
+        #index_1--
+        #index_2++
+    end
+end
